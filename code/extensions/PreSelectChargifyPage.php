@@ -20,12 +20,6 @@ class PreSelectChargifyPage extends ChargifySubscriptionPage {
 
 class PreSelectChargifyPage_Controller extends ChargifySubscriptionPage_Controller {
 	public static $allowed_actions = array(
-		'creditcard',
-		'transactions',
-		'aftersignup',
-		'upgrade',
-		'cancel',
-		'reactivate',
 		'afterregistration',
 		'beforeregistration',
 	);
@@ -35,7 +29,6 @@ class PreSelectChargifyPage_Controller extends ChargifySubscriptionPage_Controll
 
 		if (!Member::currentUserID()){
 			if(!$this->data()->PreRegisterRedirectLocationID) {
-				Debug::show('a');
 				return Security::permissionFailure($this, array(
 					'default' => 'You must be logged in to manage your subscription.'
 				));
